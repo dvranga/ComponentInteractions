@@ -1,0 +1,14 @@
+<p>This is {{ title }} Welcome to component interactions</p>
+
+<div>
+  <img (click)="onClick()" [src]="image" alt="" style="cursor: pointer; max-height: 200px;">
+</div>
+
+<div>
+  <P>The Number of Clicks is {{ counter }}</P>
+</div>
+
+<div>
+  <label for="name">Please enter the name  </label>
+  <input type="text" [(ngModel)]="title">
+</div>
