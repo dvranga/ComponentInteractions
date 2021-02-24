@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, Output, ViewChild } from '@angular/core';
+import { ChildComponent } from './child/child.component';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +9,15 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 export class AppComponent implements AfterViewInit{
 
   counter=0;
+  @ViewChild('childComponent') childComponent:ChildComponent;
+
   name;
 
   @ViewChild('nameRef') nameEleRef:ElementRef;
 
-  // ngOnInit(){
-  //   // this.nameEleRef.nativeElement.focus();
-  //   console.log(this.nameEleRef)
-  // }
 
   ngAfterViewInit(){
+    this.childComponent.message='this is view child example';
     this.nameEleRef.nativeElement.focus();
     console.log(this.nameEleRef)
   }
@@ -31,5 +31,8 @@ export class AppComponent implements AfterViewInit{
   }
 
   onUserSignIn:boolean;
+
+
+
 
 }

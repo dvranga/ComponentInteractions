@@ -16,4 +16,8 @@
 <button (click)="onUserSignIn=true">Login</button>
 <button (click)="onUserSignIn=false">Logout</button>
 <p>{{ onUserSignIn }}</p>
-<app-child [loggedIn]="onUserSignIn" ></app-child>
+<app-child [loggedIn]="onUserSignIn" #child ></app-child>
+<hr/>
+
+{{ child.name }}
+<button (click)="child.onClickToWish()">click to wish</button>
