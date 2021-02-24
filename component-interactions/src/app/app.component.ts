@@ -17,4 +17,5 @@ export class AppComponent {
   onClick(){
     this.counter+=1;
   }
+
 }
