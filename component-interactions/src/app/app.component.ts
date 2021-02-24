@@ -1,14 +1,26 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit{
 
   counter=0;
   name;
+
+  @ViewChild('nameRef') nameEleRef:ElementRef;
+
+  // ngOnInit(){
+  //   // this.nameEleRef.nativeElement.focus();
+  //   console.log(this.nameEleRef)
+  // }
+
+  ngAfterViewInit(){
+    this.nameEleRef.nativeElement.focus();
+    console.log(this.nameEleRef)
+  }
 
   title = 'component-interactions';//string interpolation
 
@@ -17,5 +29,7 @@ export class AppComponent {
   onClick(){
     this.counter+=1;
   }
+
+  onUserSignIn:boolean;
 
 }

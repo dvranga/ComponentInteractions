@@ -10,5 +10,10 @@
 
 <div>
   <label for="name">Please enter the name  </label>
-  <input type="text" [ngModel]="title" (ngModelChange)="this.title=$event">
+  <input type="text" [ngModel]="title" (ngModelChange)="this.title=$event" #nameRef>
 </div>
+
+<button (click)="onUserSignIn=true">Login</button>
+<button (click)="onUserSignIn=false">Logout</button>
+<p>{{ onUserSignIn }}</p>
+<app-child [loggedIn]="onUserSignIn" ></app-child>
